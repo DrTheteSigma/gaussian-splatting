@@ -145,6 +145,8 @@ python train.py -s <path to COLMAP or NeRF Synthetic dataset>
   Specifies resolution of the loaded images before training. If provided ```1, 2, 4``` or ```8```, uses original, 1/2, 1/4 or 1/8 resolution, respectively. For all other values, rescales the width to the given number while maintaining image aspect. **If not set and input image width exceeds 1.6K pixels, inputs are automatically rescaled to this target.**
   #### --data_device
   Specifies where to put the source image data, ```cuda``` by default, recommended to use ```cpu``` if training on large/high-resolution dataset, will reduce VRAM consumption, but slightly slow down training. Thanks to [HrsPythonix](https://github.com/HrsPythonix).
+  #### --preload_images
+  If set to false, reference images are loaded on demand instead of at startup. This reduces memory usage at the cost of slightly slower training.
   #### --white_background / -w
   Add this flag to use white background instead of black (default), e.g., for evaluation of NeRF Synthetic dataset.
   #### --sh_degree
